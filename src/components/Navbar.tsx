@@ -10,7 +10,7 @@ export default function Navbar() {
             M
           </span>
           <span className="font-display text-xl font-bold uppercase tracking-tight text-ink-900 dark:text-paper-50">
-            MSc Society
+            MSC IGDTUW
           </span>
         </Link>
 

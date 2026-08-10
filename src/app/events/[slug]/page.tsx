@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const event = await getEvent(slug);
 
   if (!event) {
-    return { title: "Event not found | MSc Society" };
+    return { title: "Event not found | MSC IGDTUW" };
   }
 
   return {

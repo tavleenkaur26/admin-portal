@@ -78,7 +78,7 @@ export default function EventsPage() {
             Events
           </h1>
           <p className="mt-2 text-slate-500 dark:text-slate-400">
-            Workshops, hackathons, talks, and everything else the MSc Society
+            Workshops, hackathons, talks, and everything else the MSC IGDTUW
             is running.
           </p>
         </div>

@@ -15,9 +15,9 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "MSc Society | Events",
+  title: "MSC IGDTUW | Events",
   description:
-    "Discover and register for upcoming events hosted by the MSc Society.",
+    "Discover and register for upcoming events hosted by MSC IGDTUW.",
 };
 
 export default function RootLayout({

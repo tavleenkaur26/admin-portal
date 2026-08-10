@@ -60,7 +60,7 @@ export default function AdminLoginPage() {
             Admin Login
           </h1>
           <p className="mt-1 text-sm text-ink-500 dark:text-ink-300">
-            MSc Society Events Portal
+            MSC IGDTUW Events Portal
           </p>
         </div>
 
