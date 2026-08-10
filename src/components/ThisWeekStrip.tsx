@@ -25,15 +25,16 @@ export default function ThisWeekStrip({ events }: { events: EventDTO[] }) {
   if (thisWeek.length === 0) return null;
 
   return (
-    <section className="mb-10 animate-fade-in">
-      <div className="mb-4 flex items-center gap-2">
-        <span className="relative flex h-2.5 w-2.5">
-          <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent-400 opacity-75" />
-          <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-accent-500" />
+    <section className="mb-12 animate-fade-in">
+      <div className="mb-5 flex items-center gap-3">
+        <span className="relative flex h-3 w-3">
+          <span className="absolute inline-flex h-full w-full animate-ping bg-brand-500 opacity-75" />
+          <span className="relative inline-flex h-3 w-3 bg-brand-600" />
         </span>
-        <h2 className="font-display text-xl font-semibold text-slate-900 dark:text-white">
-          Happening this week
+        <h2 className="font-display text-2xl font-bold uppercase tracking-tight text-ink-900 dark:text-paper-50">
+          Happening This Week
         </h2>
+        <span className="hidden h-px flex-1 bg-ink-900 dark:bg-paper-200 sm:block" />
       </div>
 
       <div className="scrollbar-thin -mx-4 flex snap-x gap-4 overflow-x-auto px-4 pb-2 sm:mx-0 sm:px-0">
@@ -43,9 +44,9 @@ export default function ThisWeekStrip({ events }: { events: EventDTO[] }) {
             <Link
               key={event._id}
               href={`/events/${event.slug}`}
-              className="group relative w-64 shrink-0 snap-start overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-lg dark:border-slate-800 dark:bg-slate-900"
+              className="group relative w-64 shrink-0 snap-start overflow-hidden border-2 border-ink-900 bg-paper-50 transition hover:-translate-y-1 dark:border-paper-200 dark:bg-ink-900"
             >
-              <div className="relative aspect-[4/3] overflow-hidden bg-slate-100 dark:bg-slate-800">
+              <div className="relative aspect-[4/3] overflow-hidden border-b-2 border-ink-900 bg-ink-100 dark:border-paper-200 dark:bg-ink-800">
                 <Image
                   src={event.imageUrl}
                   alt={event.title}
@@ -54,17 +55,17 @@ export default function ThisWeekStrip({ events }: { events: EventDTO[] }) {
                   className="object-cover transition duration-300 group-hover:scale-105"
                 />
                 {today && (
-                  <span className="absolute left-2 top-2 rounded-full bg-accent-500 px-2 py-0.5 text-[11px] font-semibold text-white shadow">
+                  <span className="absolute left-0 top-0 border-b-2 border-r-2 border-ink-900 bg-brand-600 px-2 py-1 text-[11px] font-bold uppercase tracking-wide text-paper-50 dark:border-paper-200">
                     Today
                   </span>
                 )}
               </div>
               <div className="space-y-1.5 p-3">
                 <CategoryBadge category={event.category} />
-                <h3 className="line-clamp-1 font-display text-sm font-semibold text-slate-900 dark:text-white">
+                <h3 className="line-clamp-1 font-display text-base font-bold text-ink-900 dark:text-paper-50">
                   {event.title}
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-400">
+                <p className="text-xs font-medium text-ink-500 dark:text-ink-300">
                   {format(new Date(event.date), "EEE, MMM d")} &middot; {event.time}
                 </p>
               </div>

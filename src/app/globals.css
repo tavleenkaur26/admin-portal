@@ -12,37 +12,32 @@ html {
 }
 
 body {
-  @apply bg-white text-slate-900 dark:bg-slate-950 dark:text-slate-100 transition-colors duration-200;
+  @apply bg-paper-100 text-ink-900 dark:bg-ink-950 dark:text-paper-50 transition-colors duration-200;
+  background-image: radial-gradient(circle at 1px 1px, rgba(0, 0, 0, 0.035) 1px, transparent 0);
+  background-size: 22px 22px;
+}
+
+.dark body {
+  background-image: radial-gradient(circle at 1px 1px, rgba(255, 255, 255, 0.04) 1px, transparent 0);
 }
 
 ::selection {
-  @apply bg-brand-200 text-brand-900;
+  @apply bg-brand-500 text-paper-50;
 }
 
-/* Skeleton shimmer for loading states */
 .skeleton {
-  @apply relative overflow-hidden bg-slate-200 dark:bg-slate-800;
+  @apply relative overflow-hidden bg-ink-100 dark:bg-ink-800;
 }
 
 .skeleton::after {
   content: "";
   @apply absolute inset-0 -translate-x-full;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.35),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
   animation: shimmer 1.6s infinite;
 }
 
 .dark .skeleton::after {
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(255, 255, 255, 0.08),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
 }
 
 @keyframes shimmer {
@@ -51,10 +46,9 @@ body {
   }
 }
 
-/* Custom scrollbar for the "This Week" horizontal strip */
 .scrollbar-thin::-webkit-scrollbar {
   height: 6px;
 }
 .scrollbar-thin::-webkit-scrollbar-thumb {
-  @apply bg-slate-300 dark:bg-slate-700 rounded-full;
+  @apply bg-ink-300 dark:bg-ink-700;
 }

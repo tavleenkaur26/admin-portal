@@ -47,61 +47,41 @@ export default function AdminLoginPage() {
   }
 
   return (
-    <div className="flex min-h-screen items-center justify-center bg-slate-50 px-4 dark:bg-slate-950">
+    <div className="flex min-h-screen items-center justify-center bg-paper-100 px-4 dark:bg-ink-950">
       <div className="w-full max-w-sm animate-slide-up">
         <div className="mb-8 text-center">
-          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-brand-600 text-white">
-            <LockKeyhole size={22} />
+          <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center border-2 border-ink-900 bg-brand-600 text-paper-50 dark:border-paper-200">
+            <LockKeyhole size={24} />
           </div>
-          <h1 className="font-display text-2xl font-semibold text-slate-900 dark:text-white">
+          <p className="mb-1 text-xs font-bold uppercase tracking-[0.2em] text-brand-600 dark:text-brand-400">
+            Restricted Access
+          </p>
+          <h1 className="font-display text-3xl font-bold text-ink-900 dark:text-paper-50">
             Admin Login
           </h1>
-          <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
+          <p className="mt-1 text-sm text-ink-500 dark:text-ink-300">
             MSc Society Events Portal
           </p>
         </div>
 
-        <form
-          onSubmit={handleSubmit}
-          className="space-y-4 rounded-2xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-800 dark:bg-slate-900"
-        >
+        <form onSubmit={handleSubmit} className="space-y-4 border-2 border-ink-900 bg-paper-50 p-6 dark:border-paper-200 dark:bg-ink-900">
           <div>
-            <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+            <label className="mb-1.5 block text-sm font-semibold uppercase tracking-wide text-ink-700 dark:text-paper-100">
               Email
             </label>
-            <input
-              type="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              placeholder="admin@mscsociety.com"
-              className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:focus:ring-brand-900"
-            />
-            {errors.email && (
-              <p className="mt-1 text-xs text-rose-500">{errors.email}</p>
-            )}
+            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} placeholder="admin@mscsociety.com" className="w-full border-2 border-ink-900 bg-paper-50 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 dark:border-paper-200 dark:bg-ink-800 dark:text-paper-50" />
+            {errors.email && <p className="mt-1 text-xs font-medium text-brand-600 dark:text-brand-400">{errors.email}</p>}
           </div>
 
           <div>
-            <label className="mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300">
+            <label className="mb-1.5 block text-sm font-semibold uppercase tracking-wide text-ink-700 dark:text-paper-100">
               Password
             </label>
-            <input
-              type="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              placeholder="••••••••"
-              className="w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-800 dark:text-white dark:focus:ring-brand-900"
-            />
-            {errors.password && (
-              <p className="mt-1 text-xs text-rose-500">{errors.password}</p>
-            )}
+            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} placeholder="••••••••" className="w-full border-2 border-ink-900 bg-paper-50 px-3.5 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-brand-400 dark:border-paper-200 dark:bg-ink-800 dark:text-paper-50" />
+            {errors.password && <p className="mt-1 text-xs font-medium text-brand-600 dark:text-brand-400">{errors.password}</p>}
           </div>
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-brand-600 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:opacity-60"
-          >
+          <button type="submit" disabled={loading} className="flex w-full items-center justify-center gap-2 border-2 border-ink-900 bg-brand-600 py-2.5 text-sm font-bold uppercase tracking-wide text-paper-50 transition hover:bg-brand-700 disabled:opacity-60 dark:border-paper-200">
             {loading && <Loader2 size={16} className="animate-spin" />}
             {loading ? "Signing in..." : "Sign in"}
           </button>

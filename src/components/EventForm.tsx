@@ -125,9 +125,9 @@ export default function EventForm({ mode, initialData }: Props) {
   }
 
   const inputClass =
-    "w-full rounded-xl border border-slate-200 bg-white px-3.5 py-2.5 text-sm text-slate-900 focus:border-brand-400 focus:outline-none focus:ring-2 focus:ring-brand-100 dark:border-slate-700 dark:bg-slate-900 dark:text-white dark:focus:ring-brand-900";
-  const labelClass = "mb-1.5 block text-sm font-medium text-slate-700 dark:text-slate-300";
-  const errorClass = "mt-1 text-xs text-rose-500";
+    "w-full border-2 border-ink-900 bg-paper-50 px-3.5 py-2.5 text-sm text-ink-900 focus:outline-none focus:ring-2 focus:ring-brand-400 dark:border-paper-200 dark:bg-ink-900 dark:text-paper-50";
+  const labelClass = "mb-1.5 block text-sm font-semibold uppercase tracking-wide text-ink-700 dark:text-paper-100";
+  const errorClass = "mt-1 text-xs font-medium text-brand-600 dark:text-brand-400";
 
   return (
     <form onSubmit={handleSubmit} className="space-y-6 max-w-2xl">
@@ -135,23 +135,14 @@ export default function EventForm({ mode, initialData }: Props) {
       <div>
         <label className={labelClass}>Banner Image</label>
         {form.imageUrl ? (
-          <div className="relative aspect-[16/9] w-full overflow-hidden rounded-xl border border-slate-200 dark:border-slate-700">
+          <div className="relative aspect-[16/9] w-full overflow-hidden border-2 border-ink-900 dark:border-paper-200">
             <Image src={form.imageUrl} alt="Banner preview" fill className="object-cover" />
-            <button
-              type="button"
-              onClick={() => updateField("imageUrl", "")}
-              className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center rounded-full bg-slate-900/70 text-white transition hover:bg-slate-900"
-            >
+            <button type="button" onClick={() => updateField("imageUrl", "")} className="absolute right-2 top-2 flex h-8 w-8 items-center justify-center border-2 border-ink-900 bg-paper-50 text-ink-900 transition hover:bg-brand-600 hover:text-paper-50">
               <X size={15} />
             </button>
           </div>
         ) : (
-          <button
-            type="button"
-            onClick={() => fileInputRef.current?.click()}
-            disabled={uploading}
-            className="flex aspect-[16/9] w-full flex-col items-center justify-center gap-2 rounded-xl border-2 border-dashed border-slate-300 text-slate-400 transition hover:border-brand-400 hover:text-brand-500 disabled:opacity-60 dark:border-slate-700"
-          >
+          <button type="button" onClick={() => fileInputRef.current?.click()} disabled={uploading} className="flex aspect-[16/9] w-full flex-col items-center justify-center gap-2 border-2 border-dashed border-ink-300 text-ink-400 transition hover:border-brand-500 hover:text-brand-600 disabled:opacity-60 dark:border-ink-600">
             {uploading ? (
               <>
                 <Loader2 size={22} className="animate-spin" />
@@ -161,63 +152,36 @@ export default function EventForm({ mode, initialData }: Props) {
               <>
                 <ImagePlus size={22} />
                 <span className="text-sm">Click to upload banner image</span>
-                <span className="text-xs text-slate-400">PNG, JPG up to 5MB</span>
+                <span className="text-xs text-ink-400">PNG, JPG up to 5MB</span>
               </>
             )}
           </button>
         )}
-        <input
-          ref={fileInputRef}
-          type="file"
-          accept="image/*"
-          onChange={handleImageChange}
-          className="hidden"
-        />
+        <input ref={fileInputRef} type="file" accept="image/*" onChange={handleImageChange} className="hidden" />
         {errors.imageUrl && <p className={errorClass}>{errors.imageUrl}</p>}
       </div>
 
       <div>
         <label className={labelClass}>Event Title</label>
-        <input
-          value={form.title}
-          onChange={(e) => updateField("title", e.target.value)}
-          placeholder="e.g. Intro to Machine Learning Workshop"
-          className={inputClass}
-        />
+        <input value={form.title} onChange={(e) => updateField("title", e.target.value)} placeholder="e.g. Intro to Machine Learning Workshop" className={inputClass} />
         {errors.title && <p className={errorClass}>{errors.title}</p>}
       </div>
 
       <div>
         <label className={labelClass}>Description</label>
-        <textarea
-          value={form.description}
-          onChange={(e) => updateField("description", e.target.value)}
-          rows={5}
-          placeholder="What's this event about?"
-          className={inputClass}
-        />
+        <textarea value={form.description} onChange={(e) => updateField("description", e.target.value)} rows={5} placeholder="What's this event about?" className={inputClass} />
         {errors.description && <p className={errorClass}>{errors.description}</p>}
       </div>
 
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label className={labelClass}>Date</label>
-          <input
-            type="date"
-            value={form.date}
-            onChange={(e) => updateField("date", e.target.value)}
-            className={inputClass}
-          />
+          <input type="date" value={form.date} onChange={(e) => updateField("date", e.target.value)} className={inputClass} />
           {errors.date && <p className={errorClass}>{errors.date}</p>}
         </div>
         <div>
           <label className={labelClass}>Time</label>
-          <input
-            type="time"
-            value={form.time}
-            onChange={(e) => updateField("time", e.target.value)}
-            className={inputClass}
-          />
+          <input type="time" value={form.time} onChange={(e) => updateField("time", e.target.value)} className={inputClass} />
           {errors.time && <p className={errorClass}>{errors.time}</p>}
         </div>
       </div>
@@ -225,23 +189,12 @@ export default function EventForm({ mode, initialData }: Props) {
       <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
         <div>
           <label className={labelClass}>Venue</label>
-          <input
-            value={form.venue}
-            onChange={(e) => updateField("venue", e.target.value)}
-            placeholder="e.g. Auditorium, Block C"
-            className={inputClass}
-          />
+          <input value={form.venue} onChange={(e) => updateField("venue", e.target.value)} placeholder="e.g. Auditorium, Block C" className={inputClass} />
           {errors.venue && <p className={errorClass}>{errors.venue}</p>}
         </div>
         <div>
           <label className={labelClass}>Category</label>
-          <select
-            value={form.category}
-            onChange={(e) =>
-              updateField("category", e.target.value as EventFormValues["category"])
-            }
-            className={inputClass}
-          >
+          <select value={form.category} onChange={(e) => updateField("category", e.target.value as EventFormValues["category"])} className={inputClass}>
             {EVENT_CATEGORIES.map((c) => (
               <option key={c} value={c}>
                 {c}
@@ -254,36 +207,17 @@ export default function EventForm({ mode, initialData }: Props) {
 
       <div>
         <label className={labelClass}>Registration Link</label>
-        <input
-          value={form.registrationLink}
-          onChange={(e) => updateField("registrationLink", e.target.value)}
-          placeholder="https://forms.gle/..."
-          className={inputClass}
-        />
-        {errors.registrationLink && (
-          <p className={errorClass}>{errors.registrationLink}</p>
-        )}
+        <input value={form.registrationLink} onChange={(e) => updateField("registrationLink", e.target.value)} placeholder="https://forms.gle/..." className={inputClass} />
+        {errors.registrationLink && <p className={errorClass}>{errors.registrationLink}</p>}
       </div>
 
       <div className="flex gap-3 pt-2">
-        <button
-          type="button"
-          onClick={() => router.push("/admin/dashboard")}
-          className="flex-1 rounded-xl border border-slate-200 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800"
-        >
+        <button type="button" onClick={() => router.push("/admin/dashboard")} className="flex-1 border-2 border-ink-900 py-2.5 text-sm font-semibold uppercase tracking-wide text-ink-700 transition hover:bg-ink-100 dark:border-paper-200 dark:text-paper-100 dark:hover:bg-ink-800">
           Cancel
         </button>
-        <button
-          type="submit"
-          disabled={submitting || uploading}
-          className="flex flex-1 items-center justify-center gap-2 rounded-xl bg-brand-600 py-2.5 text-sm font-semibold text-white transition hover:bg-brand-700 disabled:opacity-60"
-        >
+        <button type="submit" disabled={submitting || uploading} className="flex flex-1 items-center justify-center gap-2 border-2 border-ink-900 bg-brand-600 py-2.5 text-sm font-bold uppercase tracking-wide text-paper-50 transition hover:bg-brand-700 disabled:opacity-60 dark:border-paper-200">
           {submitting && <Loader2 size={16} className="animate-spin" />}
-          {submitting
-            ? "Saving..."
-            : mode === "create"
-            ? "Create Event"
-            : "Save Changes"}
+          {submitting ? "Saving..." : mode === "create" ? "Create Event" : "Save Changes"}
         </button>
       </div>
     </form>

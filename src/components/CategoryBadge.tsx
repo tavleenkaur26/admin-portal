@@ -1,14 +1,14 @@
 import type { EventCategory } from "@/lib/constants";
 
 const COLORS: Record<EventCategory, string> = {
-  Workshop: "bg-brand-100 text-brand-700 dark:bg-brand-950 dark:text-brand-300",
-  Hackathon: "bg-accent-100 text-accent-700 dark:bg-accent-900/40 dark:text-accent-300",
-  Seminar: "bg-emerald-100 text-emerald-700 dark:bg-emerald-950 dark:text-emerald-300",
-  Competition: "bg-rose-100 text-rose-700 dark:bg-rose-950 dark:text-rose-300",
-  Talk: "bg-sky-100 text-sky-700 dark:bg-sky-950 dark:text-sky-300",
-  Bootcamp: "bg-amber-100 text-amber-700 dark:bg-amber-950 dark:text-amber-300",
-  Meetup: "bg-fuchsia-100 text-fuchsia-700 dark:bg-fuchsia-950 dark:text-fuchsia-300",
-  Other: "bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300",
+  Workshop: "bg-brand-500 text-paper-50",
+  Hackathon: "bg-accent-600 text-paper-50",
+  Seminar: "bg-ink-700 text-paper-50",
+  Competition: "bg-brand-800 text-paper-50",
+  Talk: "bg-accent-800 text-paper-50",
+  Bootcamp: "bg-brand-600 text-paper-50",
+  Meetup: "bg-ink-500 text-paper-50",
+  Other: "bg-ink-400 text-paper-50",
 };
 
 export default function CategoryBadge({
@@ -20,7 +20,7 @@ export default function CategoryBadge({
 }) {
   return (
     <span
-      className={`inline-flex items-center rounded-full px-2.5 py-1 text-xs font-medium ${COLORS[category]} ${className}`}
+      className={`inline-flex items-center px-2.5 py-1 text-[11px] font-bold uppercase tracking-wider ${COLORS[category]} ${className}`}
     >
       {category}
     </span>

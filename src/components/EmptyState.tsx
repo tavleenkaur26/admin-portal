@@ -8,14 +8,14 @@ export default function EmptyState({
   description: string;
 }) {
   return (
-    <div className="flex flex-col items-center justify-center rounded-2xl border border-dashed border-slate-300 py-16 text-center dark:border-slate-700">
-      <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-slate-100 text-slate-400 dark:bg-slate-800 dark:text-slate-500">
+    <div className="flex flex-col items-center justify-center border-2 border-dashed border-ink-300 py-16 text-center dark:border-ink-700">
+      <div className="mb-4 flex h-14 w-14 items-center justify-center border-2 border-ink-900 bg-paper-50 text-ink-400 dark:border-paper-200 dark:bg-ink-900 dark:text-ink-500">
         <CalendarX size={26} />
       </div>
-      <h3 className="font-display text-lg font-semibold text-slate-800 dark:text-slate-100">
+      <h3 className="font-display text-xl font-bold text-ink-800 dark:text-paper-100">
         {title}
       </h3>
-      <p className="mt-1 max-w-sm text-sm text-slate-500 dark:text-slate-400">
+      <p className="mt-1 max-w-sm text-sm text-ink-500 dark:text-ink-400">
         {description}
       </p>
     </div>
