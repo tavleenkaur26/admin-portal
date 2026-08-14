@@ -132,3 +132,7 @@ Visit `localhost:3000` — it redirects to `/events`. Admin login is at `/admin/
 
 Intentionally moved away from the typical purple/rounded-corner look a lot of AI-generated UIs default to. Went with a warmer, more editorial style instead — cream background, black borders, a rust/orange accent color, and a bold serif font for headings, so it reads more like an event poster than a generic dashboard template. Still fully supports dark mode.
 
+## Demo Admin Login
+For testing/review purposes:
+- Email: admin@mscsociety.com
+- Password: newpassword123
